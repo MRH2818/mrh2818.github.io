@@ -84,8 +84,8 @@ async function init() {
         sphere.rotation.x += 0.001;
         
         // Parallax effect
-        sphere.position.x = targetX * 0.5;
-        sphere.position.y = -targetY * 0.5;
+        sphere.position.x = -targetX * 0.5;
+        sphere.position.y = targetY * 0.5;
 
         // Dynamic Twinkle effect
         const time = Date.now() * 0.001;
