@@ -1,5 +1,4 @@
 const THREE_VERSION_URL = "https://cdn.jsdelivr.net/npm/three@0.160.0/+esm";
-const ORBIT_CONTROLS_URL = "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 let THREE = globalThis.THREE;
 let OrbitControlsCtor = globalThis.OrbitControls;
 
@@ -7,12 +6,6 @@ async function ensureThreeLoaded() {
     if (!THREE) {
         THREE = await import(THREE_VERSION_URL);
         globalThis.THREE = THREE;
-    }
-
-    if (!OrbitControlsCtor) {
-        const controlsModule = await import(ORBIT_CONTROLS_URL);
-        OrbitControlsCtor = controlsModule.OrbitControls;
-        globalThis.OrbitControls = OrbitControlsCtor;
     }
 
     return THREE;
@@ -93,6 +86,11 @@ async function init() {
         // Parallax effect
         sphere.position.x = targetX * 0.5;
         sphere.position.y = -targetY * 0.5;
+
+        // Dynamic Twinkle effect
+        const time = Date.now() * 0.001;
+        particlesMaterial.opacity = 0.6 + Math.sin(time * 2) * 0.2;
+        particlesMaterial.size = 0.005 + Math.sin(time * 3) * 0.001;
 
         particlesMesh.rotation.y = -targetX * 0.1;
         particlesMesh.rotation.x = -targetY * 0.1;
