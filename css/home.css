@@ -102,7 +102,7 @@ body {
 /* Only glitch on hover or keep it subtle? Let's make it more intense on hover */
 .glitch-text:hover::before,
 .glitch-text:hover::after {
-    animation-duration: 0.2s;
+    animation-duration: 1s;
 }
 
 .subtitle {
