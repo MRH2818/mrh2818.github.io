@@ -130,7 +130,7 @@ body {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
-    width: 50%;
+    width: 34%;
 }
 
 .project-card:hover {
