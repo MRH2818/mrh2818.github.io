@@ -133,6 +133,18 @@ body {
     width: 34%;
 }
 
+@media (max-width: 800px) {
+    .project-card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        width: 100%;
+    }
+}
+
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
